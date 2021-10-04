@@ -1,0 +1,36 @@
+
+        .main{
+            width: 1140px;
+            margin: 0 auto;
+            margin-top: 50px;
+            border: 1px solid #000;
+            box-shadow: 7px 5px 8px #000;
+        }
+        .second{
+            border-top: 1px solid #000;
+        }
+        .first,.second{
+            display: flex;
+        }
+        .first span:nth-child(1){
+            flex-grow: 0.5;
+        }
+        .first span,.second span{
+            flex:1;
+            padding: 5px;
+        }
+        .first span:nth-child(3){
+            
+            text-align: right;
+        }
+        .second span:nth-child(1){
+            flex-grow: 1.5;
+        }
+        .second span:nth-child(2){
+            /* flex-shrink: ; */
+            padding: 0 5px;
+            background-color: rgb(167, 165, 165);
+        }
+        i{
+            font-size: 20px;
+        }
