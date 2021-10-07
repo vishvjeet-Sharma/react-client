@@ -41,6 +41,7 @@ body{
           padding: 30px 0;
       }
       .second span:nth-child(1) .item h3{
+
           border-bottom: 1px solid rgb(240, 239, 239);
           padding-top: 5px;
       }
@@ -72,6 +73,7 @@ body{
         outline: none;
         border: .1rem solid #aaaaaa;
       }
+
       .second span:nth-child(1) .item .left-bottom form .input-field input{
         /* padding: 0 10px; */
         /* font-size: 1.3rem; */
@@ -131,8 +133,7 @@ body{
       .second span:nth-child(2) .item .left img{
           width: 60px;
           height: 60px;
-          border: 10px solid #aaaaaa;
-          
+          border: 10px solid #aaaaaa;         
       }
       .second span:nth-child(2) .item .left{
           display: flex;
@@ -147,6 +148,7 @@ body{
       i {
         font-size: 20px;
       }
+
 
 
 
@@ -221,3 +223,4 @@ body{
     
       
       }
+
