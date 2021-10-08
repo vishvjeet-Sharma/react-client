@@ -41,7 +41,8 @@ body{
           padding: 30px 0;
       }
       .second span:nth-child(1) .item h3{
-          border-bottom: 1px solid rgb(214, 214, 214);
+
+          border-bottom: 1px solid rgb(240, 239, 239);
           padding-top: 5px;
       }
 
@@ -70,15 +71,16 @@ body{
         height: 35px;
         margin: .5rem 0;
         outline: none;
-        border: .1rem solid #c9c9c9;
+        border: .1rem solid #aaaaaa;
       }
+
       .second span:nth-child(1) .item .left-bottom form .input-field input{
         /* padding: 0 10px; */
         /* font-size: 1.3rem; */
         height: 35px;
         background: #fff;
         margin: .5rem 0;
-        border: .1rem solid #bebdbd;
+        border: .1rem solid #aaaaaa;
         outline: none;
         width: 47%; 
       }
@@ -131,8 +133,7 @@ body{
       .second span:nth-child(2) .item .left img{
           width: 60px;
           height: 60px;
-          border: 10px solid #c7c7c7;
-          
+          border: 10px solid #aaaaaa;         
       }
       .second span:nth-child(2) .item .left{
           display: flex;
@@ -148,4 +149,78 @@ body{
         font-size: 20px;
       }
 
+
+
+
+      @media screen and (max-width: 991px) {
+        
+        .second {
+          /* display: flex; */
+          flex-direction: column-reverse;
+        }
+        .first span:nth-child(2) {
+          display: none;
+        }
+        .second span:nth-child(1) .item .left-top img{
+          width: 230px;
+          height: 135px;
+      }
+        
+      }
+
+      @media screen and (max-width: 823px) {
+        
+        .second span:nth-child(1) .item .left-top img{
+          width: 180px;
+          height: 135px;
+        }
+        
+      }
+
+      @media screen and (max-width: 768px) {
+        
+        .second span:nth-child(1) .item .left-top img{
+          width: 160px;
+          height: 135px;
+        }
+        
+      }
+      
+      @media screen and (max-width: 568px) {
+        
+        .second span:nth-child(1) .item .left-top{
+          flex-direction: column;
+        
+        }
+        .second span:nth-child(1) .item .left-top img,
+        .second span:nth-child(1) .item .left-top p{
+          width: 80%;
+          /* height: 150px; */
+          margin: 5px auto;
+          display: flex;
+      }
+      
+      
+      .second span:nth-child(1) .item .left-bottom form #name,
+      .second span:nth-child(1) .item .left-bottom form #number{
+        width: 98.4%;
+        
+      }
+      .second span:nth-child(1) .item .left-bottom form .input-field input{
+        width: 100%; 
+      }
+
+      .second span:nth-child(1) .item .left-bottom form{
+        
+        width: auto;
+        
+    }
+
+    .second span:nth-child(1) .item .left-bottom form .btn{
+      width: auto;
+      padding: 0 100px;
+    }
+    
+      
+      }
 
