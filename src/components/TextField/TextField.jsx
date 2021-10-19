@@ -1,44 +1,30 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { styles } from './style';
+// import { styles } from './style';
 import './style.css';
 
 const TextField = (props) => {
   const {
-    heading, value, error, disabled,
+    value, error, onChange, 
   } = props;
 
-  let inputStyle;
-
-  if (disabled) {
-    inputStyle = styles.diabled;
-  } else if (!disabled && !error) {
-    inputStyle = styles.valid;
-  } else {
-    inputStyle = styles.Errors;
-  }
-  return (
-    <>
-      <h4 style={styles.heading}>{heading}</h4>
-      <input
-        style={inputStyle}
-        type="text"
-        name="inputField"
-        value={value}
-        error={error}
-        disabled={disabled}
-      />
-      {error && <p style={styles.errorMessage}>{error}</p>}
-    </>
+  return(
+    <label htmlFor="name">
+      <h3>Name</h3>
+      <input type="text" id="name" name="name" value={value} error={error} onChange={onChange} />
+    </label>
   );
 };
 
+TextField.defaultProps = {
+  error:'',
+};
+
 TextField.propTypes = {
-  heading: PropTypes.string.isRequired,
+  error: PropTypes.string,
   value: PropTypes.string.isRequired,
-  error: PropTypes.string.isRequired,
-  disabled: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default TextField;
