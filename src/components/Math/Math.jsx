@@ -8,21 +8,21 @@ const Math = (props) => {
         first, second, operator, children,
     } = props;
 
-    const Result = (value1, value2, valueFinal) => {
-        if (valueFinal === '+') {
-            return value1 + value2;
+    const Result = (first, second, operator) => {
+        if (operator === '+') {
+            return first + second;
         }
 
-        if (valueFinal === '-') {
-            return value1 - value2;
+        if (operator === '-') {
+            return first - second;
         }
 
-        if (valueFinal === '*') {
-            return value1 * value2;
+        if (operator === '*') {
+            return first * second;
         }
 
-        if (valueFinal === '/') {
-            return value1 * value2;
+        if (operator === '/') {
+            return first / second;
         }
         return 'Invalid Operator';
     };
