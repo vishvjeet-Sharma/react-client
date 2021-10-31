@@ -24,3 +24,5 @@ export const traineeFormSchema = yup.object().shape({
         .oneOf([yup.ref('password'), null], 'Must match with Password')
         .required('Confirm password required'),
 });
+
+
