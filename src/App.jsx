@@ -1,13 +1,13 @@
 import React from 'react';
 import { ThemeProvider } from '@mui/material/styles';
-import { Login } from './pages/index'
+import { Trainee } from './pages/index'
 import { theme } from './theme';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
     <div className="App">
-      <Login />
+      <Trainee />
     </div>
     </ThemeProvider>
   );
