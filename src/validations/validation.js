@@ -26,3 +26,19 @@ export const traineeFormSchema = yup.object().shape({
 });
 
 
+export const loginFormSchema = yup.object().shape({
+    email:yup
+    .string()
+    .email()
+    .label('Email Address')
+    .required(),
+
+    password: yup
+    .string()
+    .label('Password')
+    .matches(/^.*(?=.{8,})((?=.*[!@#$%^&*()\-_=+{};:,<.>]){1})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/, 
+    'Must contains 8 characters, at least one uppercase letter,one lowercase letter and one number'
+    )
+    .required('Password is required'),
+});
+

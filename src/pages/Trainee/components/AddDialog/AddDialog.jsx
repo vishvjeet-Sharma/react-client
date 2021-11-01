@@ -152,7 +152,7 @@ AddDialog.propTypes = {
         confirmPassword: PropTypes.string,
         touched: PropTypes.objectOf(PropTypes.bool),
         errors: PropTypes.objectOf(PropTypes.string),
-    })
+    }).isRequired,
 };
 
 export default AddDialog;
