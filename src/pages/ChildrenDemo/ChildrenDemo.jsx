@@ -3,22 +3,22 @@ import { Math } from '../../components';
 
 const customTemp = (obj) => {
     if (obj.operator === '+'){
-        return `Mutilply of ${obj.first} and ${obj.second} is ${obj.result}`;
+        return `Sum of ${obj.first} and ${obj.second} is ${obj.result}`;
     }
     if (obj.operator === '-'){
-        return `Divison of ${obj.first} and ${obj.second} is ${obj.result}`;
+        return `Subtraction of ${obj.first} and ${obj.second} is ${obj.result}`;
     }
     if (obj.operator === '*'){
-        return `Mutilply of ${obj.first} and ${obj.second} is ${obj.result}`;
+        return `Mutilplication of ${obj.first} and ${obj.second} is ${obj.result}`;
     }
     if (obj.operator === '/'){
-        return `Mutilply of ${obj.first} and ${obj.second} is ${obj.result}`;
+        return `Divide of ${obj.first} and ${obj.second} is ${obj.result}`;
     }
 }
 const ChildrenDemo = () => (
     <>
-    <Math first = {7} second = {4} operator='+'/>
-    <Math first = {7} second = {4} operator='+'>
+    <Math first = {7} second = {3} operator='+'/>
+    <Math first = {7} second = {3} operator='-'>
         {customTemp}
     </Math>
     </>
