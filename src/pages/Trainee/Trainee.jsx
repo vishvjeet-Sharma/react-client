@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
 import { traineeFormSchema } from '../../validations/validation';
-import { NavBar } from '../components';
 import { AddDialog } from './components';
 
 const Trainee = () => {
@@ -24,30 +23,47 @@ const Trainee = () => {
     const validateData = async (value, type) => {
         try {
             await traineeFormSchema.validate({
-                ...form, [type]: value,
+
+                ...Object.keys(form).reduce((acc, curr) => ({
+                    ...acc,
+                    [curr]: form[curr].input,
+                  }), {}),
+
+                // ...form, 
+                [type]: value,
             }, {
                 abortEarly: false,
             });
             setForm({
                 ...form,
-                [type]: value,
-                touched: { ...form.touched, [type]: true },
+
+                [type]: {
+                    input: value,
+                    isTouched: true,
+                  },
+                // [type]: value,
+                // touched: { ...form.touched, [type]: true },
                 errors: {},
             });
         } catch (err) {
             const formErrors = {};
             if (err) {
-                err.inner.forEach((errorItems) => {
-                    formErrors[errorItems.path] = errorItems.message;
+                err.inner.forEach((errorItem) => {
+                    formErrors[errorItem.path] = errorItem.message;
                 });
 
             }
             setForm({
                 ...form,
-                [type]: value,
-                touched: { ...form.touched, [type]: true },
+
+                [type]: {
+                    input: value,
+                    isTouched: true,
+                  },
+                // [type]: value,
+                // touched: { ...form.touched, [type]: true },
                 errors: formErrors,
-            })
+            });
         }
     };
     const handleClickOpen = () => {
@@ -60,7 +76,7 @@ const Trainee = () => {
     };
 
     const handleSubmit = () => {
-        console.log({ name: form.name, email: form.email, password: form.password, confirmPassword: form.confirmPassword })
+        console.log({ name: form.name, email: form.email, password: form.password, confirmPassword: form.confirmPassword });
     };
     const handleChange = (event) => {
         const { value, name: type } = event.target;
@@ -76,7 +92,7 @@ const Trainee = () => {
 
     return (
         <>
-            <NavBar />
+            {/* <NavBar /> */}
             <AddDialog
                 onButtonSubmit={handleSubmit}
                 value={form}

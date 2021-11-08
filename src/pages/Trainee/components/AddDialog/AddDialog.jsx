@@ -11,12 +11,13 @@ import PersonIcon from '@mui/icons-material/Person';
 import EmailIcon from '@mui/icons-material/Email';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import style from './style';
-import { InputAdornment } from '@mui/material';
+import InputAdornment from '@mui/material/InputAdornment';
 import { hasError, isTouched } from '../../helper';
+// import Box from '@mui/material/Box';
 
 const AddDialog = (props) => {
     const {
-        onClick, onClose, onButtonSubmit, open, onBlur, value, onChange
+        onClick, onClose, onSubmit, open, onBlur, value, onChange
     } = props;
 
     return (
@@ -130,7 +131,7 @@ const AddDialog = (props) => {
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={onClose}>Cancel</Button>
-                    <Button onClick={onButtonSubmit} variant="contained" disabled={!(!hasError(value) && isTouched(value))}>Submit</Button>
+                    <Button onClick={onSubmit} variant="contained" disabled={!(!hasError(value) && isTouched(value))}>Submit</Button>
                 </DialogActions>
             </Dialog>
         </div>

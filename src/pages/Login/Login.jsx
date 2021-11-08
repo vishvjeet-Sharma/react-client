@@ -8,7 +8,7 @@ import { Grid } from '@mui/material';
 import { Paper } from '@mui/material';
 import { Avatar } from '@mui/material';
 import { TextField } from '@mui/material';
-import { Button } from '@mui/material';
+import Button from '@mui/material/Button';
 import { loginFormSchema } from '../../validations/validation';
 import { hasErrors } from './helper';
 import { isTouched } from './helper';

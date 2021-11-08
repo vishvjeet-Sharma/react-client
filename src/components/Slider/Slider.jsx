@@ -24,7 +24,7 @@ const Slider = (props) => {
   // const imgPath = `${PUBLIC_IMAGE_FOLDER}${banners[index]}`;
   return (
     <div className="container">
-      <img src={'${PUBLIC_IMAGE_FOLDER}${banners[index]}'} alt={altText} defaultBanner={defaultBanner} height={height} />
+      <img src={`${PUBLIC_IMAGE_FOLDER}${banners[index]}`} alt={altText} defaultBanner={defaultBanner} height={height} />
     </div>
   );
 };
