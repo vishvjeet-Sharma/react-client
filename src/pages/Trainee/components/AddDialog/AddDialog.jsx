@@ -22,7 +22,7 @@ const AddDialog = (props) => {
 
     return (
         <div>
-            <Button variant="outlined" onClick={onClick}>
+            <Button variant="outlined" onClick={onClick} sx={{marginTop: 5, marginLeft: 5}}>
                 ADD TRAINEE
             </Button>
             <Dialog open={open} onClose={onClose} fullWidth="true" maxWidth="100px"  >

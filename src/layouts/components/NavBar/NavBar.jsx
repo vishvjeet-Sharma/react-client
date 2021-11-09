@@ -14,11 +14,11 @@ const NavBar = () => (
           width="82%"
           variant="h6"
           component="div"
-          sx={{ flexGrow: 1, padding: 2, fontSize: 25 }}
+          sx={{ flexGrow: 1, padding: 2, fontSize: 20 }}
         >
           Training Portal
         </Typography>
-        <Typography flexGrow={0.5} width={1200} marginRight={-42}>
+        <Typography flexGrow={0.5} width={1200} marginRight={-20}>
           <Link to="/" style={{ color: 'white', textDecoration: 'none' }}>
             <Button color="inherit" sx={{ fontSize: 15, width: 'fit-content' }}>Trainee</Button>
           </Link>
