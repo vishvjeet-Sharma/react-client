@@ -2,17 +2,17 @@ export const styles = {
   heading: {
     fontSize: '1rem',
   },
-  diabled: {
+  disabledInput: {
     width: '100%',
     border: '1px solid #cccccc',
     padding: '10px',
   },
-  valid: {
+  validInput: {
     width: '100%',
     border: '1px solid #e0a889',
     padding: '10px',
   },
-  Errors: {
+  inputWithErrors: {
     width: '100%',
     border: '1px solid #f24028',
     padding: '10px',
