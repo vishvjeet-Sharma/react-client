@@ -1,4 +1,3 @@
-
 export const isTouched = (value) => {
     const { touched } = value;
     const field = Object.keys(touched);

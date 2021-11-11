@@ -19,6 +19,7 @@ const AddDialog = (props) => {
     const {
         onClick, onClose, onSubmit, open, onBlur, value, onChange
     } = props;
+    console.log('value prop >>>', value);
 
     return (
         <div>

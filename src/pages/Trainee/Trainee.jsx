@@ -19,30 +19,21 @@ const Trainee = () => {
     };
     const [open, setOpen] = useState(false);
     const [form, setForm] = useState(initialState);
+    console.log(initialState);
 
     const validateData = async (value, type) => {
+        console.log('try to do something new');
         try {
             await traineeFormSchema.validate({
-
-                ...Object.keys(form).reduce((acc, curr) => ({
-                    ...acc,
-                    [curr]: form[curr].input,
-                  }), {}),
-
-                // ...form, 
-                [type]: value,
-            }, {
+                ...form, [type]: value,
+            },{
                 abortEarly: false,
             });
             setForm({
-                ...form,
-
-                [type]: {
-                    input: value,
-                    isTouched: true,
-                  },
-                // [type]: value,
-                // touched: { ...form.touched, [type]: true },
+              
+                ...form, 
+                [type]: value,
+                touched: {...form.touched, [type]: true },
                 errors: {},
             });
         } catch (err) {
@@ -55,13 +46,8 @@ const Trainee = () => {
             }
             setForm({
                 ...form,
-
-                [type]: {
-                    input: value,
-                    isTouched: true,
-                  },
-                // [type]: value,
-                // touched: { ...form.touched, [type]: true },
+                [type]: value,
+                touched: {...form.touched, [type]: true },
                 errors: formErrors,
             });
         }
