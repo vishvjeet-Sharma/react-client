@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
 import { traineeFormSchema } from '../../validations/validation';
-import { NavBar } from '../components';
 import { AddDialog } from './components';
 
 const Trainee = () => {
@@ -20,34 +19,37 @@ const Trainee = () => {
     };
     const [open, setOpen] = useState(false);
     const [form, setForm] = useState(initialState);
+    console.log(initialState);
 
     const validateData = async (value, type) => {
+        console.log('try to do something new');
         try {
             await traineeFormSchema.validate({
                 ...form, [type]: value,
-            }, {
+            },{
                 abortEarly: false,
             });
             setForm({
-                ...form,
+              
+                ...form, 
                 [type]: value,
-                touched: { ...form.touched, [type]: true },
+                touched: {...form.touched, [type]: true },
                 errors: {},
             });
         } catch (err) {
             const formErrors = {};
             if (err) {
-                err.inner.forEach((errorItems) => {
-                    formErrors[errorItems.path] = errorItems.message;
+                err.inner.forEach((errorItem) => {
+                    formErrors[errorItem.path] = errorItem.message;
                 });
 
             }
             setForm({
                 ...form,
                 [type]: value,
-                touched: { ...form.touched, [type]: true },
+                touched: {...form.touched, [type]: true },
                 errors: formErrors,
-            })
+            });
         }
     };
     const handleClickOpen = () => {
@@ -60,7 +62,7 @@ const Trainee = () => {
     };
 
     const handleSubmit = () => {
-        console.log({ name: form.name, email: form.email, password: form.password, confirmPassword: form.confirmPassword })
+        console.log({ name: form.name, email: form.email, password: form.password, confirmPassword: form.confirmPassword });
     };
     const handleChange = (event) => {
         const { value, name: type } = event.target;
@@ -76,7 +78,7 @@ const Trainee = () => {
 
     return (
         <>
-            <NavBar />
+            {/* <NavBar /> */}
             <AddDialog
                 onButtonSubmit={handleSubmit}
                 value={form}

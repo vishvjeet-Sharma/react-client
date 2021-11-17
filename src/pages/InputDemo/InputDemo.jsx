@@ -39,7 +39,7 @@ const InputDemo = () => {
     }
   };
   return (
-    <div className="container">
+    <div className="InputBox">
       <form>
       <TextField value={name} onChange={handleNameChange} defaultValue={name} />
       <SelectField value={sport} onChange={handleSportChange} options={OPTIONS} />

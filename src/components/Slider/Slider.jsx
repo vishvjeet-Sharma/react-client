@@ -7,7 +7,7 @@ import './style.css';
 
 const Slider = (props) => {
   const {
-    altText, banners, defaultBanner, duration, height, random,
+    altText, banners, defaultBanner, duration, height, random, 
   } = props;
   const [index, setIndex] = useState(0);
 
@@ -21,10 +21,10 @@ const Slider = (props) => {
       clearInterval(interval);
     };
   }, [index]);
-  // const imgPath = `${PUBLIC_IMAGE_FOLDER}${banners[index]}`;
+  const imgPath = `${PUBLIC_IMAGE_FOLDER}${banners[index]}`;
   return (
     <div className="container">
-      <img src={'${PUBLIC_IMAGE_FOLDER}${banners[index]}'} alt={altText} defaultBanner={defaultBanner} height={height} />
+      <img src={imgPath} alt={altText} defaultBanner={defaultBanner} height={height} />
     </div>
   );
 };
@@ -33,8 +33,8 @@ Slider.defaultProps = {
   altText: 'Default Banner',
   defaultBanner: DEFAULT_BANNER_IMAGE,
   duration: 2000,
-  height: 200,
-  random: false,
+  height: 900,
+  random: false, 
 };
 
 Slider.propTypes = {

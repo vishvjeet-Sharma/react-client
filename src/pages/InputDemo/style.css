@@ -1,5 +1,5 @@
-.container{
-    width: 100%;
+.InputBox{
+    width: 98%;
     display: flex;
     flex-direction: column;
 }
