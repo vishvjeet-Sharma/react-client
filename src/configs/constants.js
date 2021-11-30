@@ -11,6 +11,7 @@ export const OPTIONS = [
     label: 'Football',
   },
 ];
+
 export const OPTIONS_CRICKET = [
   {
     value: 'wicket-keeper',
@@ -26,6 +27,7 @@ export const OPTIONS_CRICKET = [
     label: 'All Rounder',
   },
 ];
+
 export const OPTIONS_FOOTBALL = [
   {
     value: 'defender',
@@ -35,8 +37,6 @@ export const OPTIONS_FOOTBALL = [
     label: 'Striker',
   },
 ];
-
-
 
 export const column = [
   {
