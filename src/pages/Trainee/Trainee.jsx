@@ -5,10 +5,10 @@ import { Route } from 'react-router-dom';
 import TraineeList from './TraineeList';
 import TraineeDetail from './TraineeDetail';
 
-const Trainee = ({ path }) => (
+const Trainee = ({ match: {path }}) => (
     <Switch>
-        <Route exact path={path} component={TraineeList} />
         <Route exact path={`${path}/:id`} component={TraineeDetail} />
+        <Route exact path={`${path}`} component={TraineeList} />
     </Switch>
 );
 

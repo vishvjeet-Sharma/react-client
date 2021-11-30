@@ -5,7 +5,7 @@ import { PrivateLayout } from '../layouts/index';
 
 const PrivateRoute = ({ exact, path, component: Component 
 }) => (
-    <Route exact={exact} path={path} render={() => <PrivateLayout><Component exact={exact} path={path} /></PrivateLayout>} />
+    <Route exact={exact} path={path} render={({ match }) => <PrivateLayout><Component match={match} /></PrivateLayout>} />
 );
 
 PrivateRoute.defaultProps = {
