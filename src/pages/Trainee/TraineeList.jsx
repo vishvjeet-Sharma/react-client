@@ -5,7 +5,7 @@ import { traineeFormSchema } from '../../validations/validation';
 import { AddDialog } from './components';
 import trainees from './data/trainee';
 
-const TraineeList = () => {
+const TraineeList = ({match: {path}}) => {
     const initialState = {
         name: '',
         email: '',
@@ -77,6 +77,7 @@ const TraineeList = () => {
     };
 
     console.log('form', form);
+    console.log('path', path);
 
     return (
         <>
@@ -92,7 +93,7 @@ const TraineeList = () => {
             <ul>
                 {trainees.map((item) => (
                     <li key={item.id}>
-                        <Link to={"/trainee/"+item.id}>
+                        <Link to={`${path}/${item.id}`}>
                             {item.name}
                         </Link>
                     </li>
