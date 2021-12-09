@@ -4,9 +4,29 @@ import { Link } from 'react-router-dom';
 import { traineeFormSchema } from '../../validations/validation';
 import { AddDialog } from './components';
 import trainees from './data/trainee';
-import { column } from '../../configs/constants';
 import { GenericTable } from '../../components';
+import { useHistory } from 'react-router';
+import moment from 'moment';
 
+const getDateFormatted = (date) => moment(date).format('dddd, MMMM Do YYYY, h:mm:ss a');
+const column = [
+  {
+    field: 'name',
+    label: 'Name',
+    align: 'left',
+  }, {
+    field: 'email',
+    label: 'Email Address',
+    align: 'middle',
+    format: (value) => value && value.toUpperCase(),
+  },
+  {
+    field: 'createdAt',
+    label: 'Date',
+    align: 'right',
+    format: getDateFormatted,
+  },
+];
 const TraineeList = ({match: {path}}) => {
     const initialState = {
         name: '',
@@ -23,6 +43,9 @@ const TraineeList = ({match: {path}}) => {
     };
     const [open, setOpen] = useState(false);
     const [form, setForm] = useState(initialState);
+    const [order, setOrder] = useState('asc');
+    const [orderBy, setOrderBy] = useState();
+    const history = useHistory();
     console.log(initialState);
 
     const validateData = async (value, type) => {
@@ -77,6 +100,17 @@ const TraineeList = ({match: {path}}) => {
         const { value, name: type } = event.target;
         validateData(value, type);
     };
+    const handelSelect = (id) => {
+        history.push(`/trainee/${id}`);
+    };
+    const handelSort = (field) => {
+        if (orderBy === field) {
+            setOrder(order === 'desc' ? 'asc' : 'desc');
+        } else {
+            setOrder('asc');
+            setOrderBy(field);
+        }
+    };
     useEffect(() => {
         const {
             name, email, password, confirmPassword,
@@ -100,8 +134,18 @@ const TraineeList = ({match: {path}}) => {
                 onChange={handleChange}
                 onBlur={handleBlur}
             />
-            <GenericTable id="id" columns={column} data={trainees} />
-            <ul>
+            <GenericTable 
+                id="id" 
+                columns={column} 
+                data={trainees} 
+                order={order}
+                orderBy={orderBy}
+                onSort={handelSort}
+                onSelect={handelSelect}
+            />
+
+
+            {/* <ul>
                 {trainees.map((item) => (
                     <li key={item.id}>
                         <Link to={`${path}/${item.id}`}>
@@ -109,7 +153,7 @@ const TraineeList = ({match: {path}}) => {
                         </Link>
                     </li>
                 ))}
-            </ul>
+            </ul> */}
         </>
     );
 };

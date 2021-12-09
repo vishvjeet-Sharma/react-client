@@ -37,14 +37,3 @@ export const OPTIONS_FOOTBALL = [
     label: 'Striker',
   },
 ];
-
-export const column = [
-  {
-    field: 'name',
-    label: 'Name',
-    align: 'center',
-  }, {
-    field: 'email',
-    label: 'Email Address',
-  },
-];
