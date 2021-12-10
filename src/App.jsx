@@ -9,10 +9,6 @@ import { BrowserRouter } from 'react-router-dom';
 import CssBaseline from '@mui/material/CssBaseline';
 import { Route, Redirect } from  'react-router-dom';
 
-// function Home() {
-//   return <h2>Home</h2>;
-// }
-
 
 function App() {
   return (
@@ -21,10 +17,6 @@ function App() {
       <ThemeProvider theme={theme}>
         <div className="App">
           <Switch>
-
-          {/* <Route path="/">
-            <Home />
-          </Route> */}
             <Route exact path='/'>
               <Redirect to='/login' />
             </Route>
@@ -45,3 +37,5 @@ function App() {
 }
 
 export default App;
+
+
