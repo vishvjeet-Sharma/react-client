@@ -1,14 +1,14 @@
 import React from 'react';
 import {
-  Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, TableSortLabel,
+  Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, TableSortLabel, TablePagination, IconButton,
 } from '@mui/material';
 import PropTypes from 'prop-types';
 
 const GenericTable = (props) => {
-  const { id, columns, data, order, orderBy, onSort, onSelect } = props;
+  const { id, columns, data, order, orderBy, onSort, onSelect, count, page, rowsPerPage, onChangePage, actions } = props;
   return (
-    <TableContainer component={Paper} sx={{ margin:2, boxShadow: 4 }}>
-      <Table sx={{ minWidth: 600, }} aria-label="simple table">
+    <TableContainer component={Paper} sx={{ margin:2, boxShadow: 5 }}>
+      <Table aria-label="simple table">
         <TableHead>
           <TableRow> 
             {columns.map((column) => (
@@ -36,10 +36,20 @@ const GenericTable = (props) => {
                   {column.format ? column.format(item[column.field]) : item[column.field]}
                 </TableCell>
               ))}
+              <TableCell align="center">
+                {actions.map((action,index) => (
+                  <div>
+                    <IconButton key={index.icon} size="small" onClick={() => action.handler(item)}>
+                      {action.icon}
+                    </IconButton>
+                  </div>
+                ))}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
+      <TablePagination rowsPerPageOptions= {[15]} component="div" count={count} rowsPerPage={rowsPerPage} page={page} onPageChange={onChangePage} />
     </TableContainer>
   );
 };
@@ -47,7 +57,9 @@ const GenericTable = (props) => {
 GenericTable.defaultProps = {
   order: 'asc',
   orderBy: '',
-}
+  page: 0,
+  actions: [],
+};
 
 GenericTable.propTypes = {
   id: PropTypes.string.isRequired,
@@ -62,7 +74,14 @@ GenericTable.propTypes = {
   orderBy: PropTypes.string,
   onSelect: PropTypes.func.isRequired,
   onSort: PropTypes.func.isRequired,
-
+  count: PropTypes.number.isRequired,
+  page: PropTypes.number,
+  rowsPerPage: PropTypes.number.isRequired,
+  onChangePage: PropTypes.func.isRequired,
+  actions: PropTypes.arrayOf(PropTypes.shape({
+    icon: PropTypes.element,
+    handler: PropTypes.func,
+  })),
 };
 
 export default GenericTable; 
