@@ -8,6 +8,7 @@ import { Switch } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 import CssBaseline from '@mui/material/CssBaseline';
 import { Route, Redirect } from  'react-router-dom';
+import { SnackbarProvider } from './contexts/SnackbarProvider';
 
 // function Home() {
 //   return <h2>Home</h2>;
@@ -19,12 +20,9 @@ function App() {
     <BrowserRouter>
       <CssBaseline />
       <ThemeProvider theme={theme}>
+        <SnackbarProvider>
         <div className="App">
           <Switch>
-
-          {/* <Route path="/">
-            <Home />
-          </Route> */}
             <Route exact path='/'>
               <Redirect to='/login' />
             </Route>
@@ -39,6 +37,7 @@ function App() {
             </Route>  
           </Switch>  
         </div>
+        </SnackbarProvider>
       </ThemeProvider>
     </BrowserRouter>
   );
