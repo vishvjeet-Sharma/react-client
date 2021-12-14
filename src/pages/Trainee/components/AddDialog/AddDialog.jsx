@@ -13,10 +13,6 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import style from './style';
 import InputAdornment from '@mui/material/InputAdornment';
 import { hasError, isTouched } from '../../helper';
-
-import OutlinedInput from '@mui/material/OutlinedInput';
-import InputLabel from '@mui/material/InputLabel';
-import FormControl from '@mui/material/FormControl';
 import FormHelperText from '@mui/material/FormHelperText';
 
 const AddDialog = (props) => {

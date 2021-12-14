@@ -11,6 +11,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { SnackbarContext } from '../../contexts/SnackbarProvider/SnackbarProvider';
 
+
 const getDateFormatted = (date) => moment(date).format('dddd, MMMM Do YYYY, h:mm:ss a');
 const column = [
     {
@@ -31,6 +32,7 @@ const column = [
     },
 ];
 const TraineeList = ({ match: { path } }) => {
+
     const initialState = {
         name: '',
         email: '',

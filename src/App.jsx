@@ -10,11 +10,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { Route, Redirect } from  'react-router-dom';
 import { SnackbarProvider } from './contexts/SnackbarProvider';
 
-// function Home() {
-//   return <h2>Home</h2>;
-// }
-
-
 function App() {
   return (
     <BrowserRouter>
@@ -23,6 +18,8 @@ function App() {
         <SnackbarProvider>
         <div className="App">
           <Switch>
+
+         
             <Route exact path='/'>
               <Redirect to='/login' />
             </Route>
