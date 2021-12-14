@@ -21,7 +21,7 @@ import FormHelperText from '@mui/material/FormHelperText';
 
 const AddDialog = (props) => {
     const {
-        onClick, onClose, onSubmit, open, onBlur, value, onChange
+        onClick, onClose, onButtonSubmit, open, onBlur, value, onChange
     } = props;
     console.log('value prop >>>', value);
 
@@ -57,6 +57,9 @@ const AddDialog = (props) => {
                         error={(value.errors.name && value.touched.name)}
                         helperText={value.touched.name && value.errors.name}
                     />
+                        <FormHelperText id="requiredData" error={(value.errors.name && value.touched.name)}>
+                        </FormHelperText>
+                    
 
                     <TextField
                         margin="dense"
@@ -136,7 +139,7 @@ const AddDialog = (props) => {
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={onClose}>Cancel</Button>
-                    <Button onClick={onSubmit} variant="contained" disabled={!(!hasError(value) && isTouched(value))}>Submit</Button>
+                    <Button onClick={onButtonSubmit} variant="contained" disabled={!(!hasError(value) && isTouched(value))}>Submit</Button>
                 </DialogActions>
             </Dialog>
         </div>
@@ -150,15 +153,15 @@ AddDialog.propTypes = {
     onClick: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired,
     onBlur: PropTypes.func.isRequired,
-    // value: PropTypes.string.isRequired,
-    value: PropTypes.shape({
-        name: PropTypes.string,
-        email: PropTypes.string,
-        password: PropTypes.string,
-        confirmPassword: PropTypes.string,
-        touched: PropTypes.objectOf(PropTypes.bool),
-        errors: PropTypes.objectOf(PropTypes.string),
-    }).isRequired,
+    value: PropTypes.string.isRequired,
+    // value: PropTypes.shape({
+    //     name: PropTypes.string,
+    //     email: PropTypes.string,
+    //     password: PropTypes.string,
+    //     confirmPassword: PropTypes.string,
+    //     touched: PropTypes.objectOf(PropTypes.bool),
+    //     errors: PropTypes.objectOf(PropTypes.string),
+    // }).isRequired,
 };
 
 export default AddDialog;

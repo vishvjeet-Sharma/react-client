@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useEffect, useState } from 'react';
 // import { Link } from 'react-router-dom';
 import { traineeFormSchema } from '../../validations/validation';
@@ -9,6 +9,7 @@ import { useHistory } from 'react-router';
 import moment from 'moment';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { SnackbarContext } from '../../contexts/SnackbarProvider/SnackbarProvider';
 
 const getDateFormatted = (date) => moment(date).format('dddd, MMMM Do YYYY, h:mm:ss a');
 const column = [
@@ -54,8 +55,10 @@ const TraineeList = ({ match: { path } }) => {
     const [actions, setActions] = useState(actionInitialState);
     const history = useHistory();
 
+
+    const handleOpen = useContext(SnackbarContext);
+
     const validateData = async (value, type) => {
-        console.log('try to do something new');
         try {
             await traineeFormSchema.validate({
                 ...form, [type]: value,
@@ -63,7 +66,6 @@ const TraineeList = ({ match: { path } }) => {
                 abortEarly: false,
             });
             setForm({
-
                 ...form,
                 [type]: value,
                 touched: { ...form.touched, [type]: true },
@@ -75,7 +77,6 @@ const TraineeList = ({ match: { path } }) => {
                 err.inner.forEach((errorItem) => {
                     formErrors[errorItem.path] = errorItem.message;
                 });
-
             }
             setForm({
                 ...form,
@@ -96,6 +97,8 @@ const TraineeList = ({ match: { path } }) => {
 
     const handleSubmit = () => {
         console.log({ name: form.name, email: form.email, password: form.password, confirmPassword: form.confirmPassword });
+        handleOpen('This is a success message!','success');
+        handleClose();
     };
     const handleChange = (event) => {
         const { value, name: type } = event.target;
@@ -133,6 +136,7 @@ const TraineeList = ({ match: { path } }) => {
     };
     const handleEditSubmit = () => {
         setOpenEditDialogue(false);
+        handleOpen('This is a success message!','success');
     };
     const handleEditClose = () => {
         setActions(actionInitialState);
@@ -144,8 +148,22 @@ const TraineeList = ({ match: { path } }) => {
             ...actions, id: data.id, name:data.name, email: data.email, createdAt: data.createdAt,
         });
         setOpenRemoveDialog(true);
+        console.log('Data', data);
     };
     const handleDelete = () => {
+        console.log('Delete Item', actions);
+        let message;
+        let status;
+        const date1 = new Date('2019-02-14');
+        const date2 = new Date(actions.createdAt);
+        if (date2 > date1 ) {
+            message = 'This is a success message!';
+            status = 'success';
+        } else {
+            message = 'This is an error message!';
+            status = 'error';
+        }
+        handleOpen(message, status);
         setOpenRemoveDialog(false);
     };
     const handleRemoveDialogClose = () => {
