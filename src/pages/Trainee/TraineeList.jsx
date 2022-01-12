@@ -1,9 +1,11 @@
 import React from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { traineeFormSchema } from '../../validations/validation';
 import { AddDialog } from './components';
 import trainees from './data/trainee';
+import { column } from '../../configs/constants';
+import { GenericTable } from '../../components';
 
 const TraineeList = ({match: {path}}) => {
     const initialState = {
@@ -75,6 +77,14 @@ const TraineeList = ({match: {path}}) => {
         const { value, name: type } = event.target;
         validateData(value, type);
     };
+    useEffect(() => {
+        const {
+            name, email, password, confirmPassword,
+        } = '';
+        console.log({
+            name, email, password, confirmPassword,
+        });
+    });
 
     console.log('form', form);
     console.log('path', path);
@@ -90,6 +100,7 @@ const TraineeList = ({match: {path}}) => {
                 onChange={handleChange}
                 onBlur={handleBlur}
             />
+            <GenericTable id="id" columns={column} data={trainees} />
             <ul>
                 {trainees.map((item) => (
                     <li key={item.id}>
