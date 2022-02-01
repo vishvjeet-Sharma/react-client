@@ -100,6 +100,7 @@ const TraineeList = ({match: {path}}) => {
         const { value, name: type } = event.target;
         validateData(value, type);
     };
+
     const handelSelect = (id) => {
         history.push(`/trainee/${id}`);
     };
@@ -111,6 +112,7 @@ const TraineeList = ({match: {path}}) => {
             setOrderBy(field);
         }
     };
+
     useEffect(() => {
         const {
             name, email, password, confirmPassword,
@@ -134,6 +136,7 @@ const TraineeList = ({match: {path}}) => {
                 onChange={handleChange}
                 onBlur={handleBlur}
             />
+
             <GenericTable 
                 id="id" 
                 columns={column} 
@@ -143,17 +146,6 @@ const TraineeList = ({match: {path}}) => {
                 onSort={handelSort}
                 onSelect={handelSelect}
             />
-
-
-            {/* <ul>
-                {trainees.map((item) => (
-                    <li key={item.id}>
-                        <Link to={`${path}/${item.id}`}>
-                            {item.name}
-                        </Link>
-                    </li>
-                ))}
-            </ul> */}
         </>
     );
 };

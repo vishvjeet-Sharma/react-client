@@ -8,6 +8,13 @@ import { Switch } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 import CssBaseline from '@mui/material/CssBaseline';
 import { Route, Redirect } from  'react-router-dom';
+<<<<<<< HEAD
+
+// function Home() {
+//   return <h2>Home</h2>;
+// }
+=======
+>>>>>>> a39479955c4731252bb023cfa952fb12df833b1c
 
 
 function App() {
@@ -18,7 +25,13 @@ function App() {
         <div className="App">
           <Switch>
 
+<<<<<<< HEAD
+          {/* <Route path="/">
+            <Home />
+          </Route> */}
+=======
          
+>>>>>>> a39479955c4731252bb023cfa952fb12df833b1c
             <Route exact path='/'>
               <Redirect to='/login' />
             </Route>
