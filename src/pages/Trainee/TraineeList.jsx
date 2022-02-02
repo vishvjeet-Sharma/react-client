@@ -1,6 +1,5 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-// import { Link } from 'react-router-dom';
 import { traineeFormSchema } from '../../validations/validation';
 import { AddDialog, EditDialog, RemoveDialog } from './components';
 import trainees from './data/trainee';
@@ -106,6 +105,7 @@ const TraineeList = ({ match: { path } }) => {
         const { value, name: type } = event.target;
         validateData(value, type);
     };
+
     const handelSelect = (id) => {
         history.push(`/trainee/${id}`);
     };
@@ -151,8 +151,7 @@ const TraineeList = ({ match: { path } }) => {
     const handleRemoveDialogClose = () => {
         setOpenRemoveDialog(false);
     };
-
-
+  
     useEffect(() => {
         const {
             name, email, password, confirmPassword,
@@ -176,6 +175,7 @@ const TraineeList = ({ match: { path } }) => {
                 onChange={handleChange}
                 onBlur={handleBlur}
             />
+
             <GenericTable
                 id="id"
                 columns={column}
@@ -211,17 +211,6 @@ const TraineeList = ({ match: { path } }) => {
                 onDelete={handleDelete}
                 onClose={handleRemoveDialogClose}
             />
-
-
-            {/* <ul>
-                {trainees.map((item) => (
-                    <li key={item.id}>
-                        <Link to={`${path}/${item.id}`}>
-                            {item.name}
-                        </Link>
-                    </li>
-                ))}
-            </ul> */}
         </>
     );
 };

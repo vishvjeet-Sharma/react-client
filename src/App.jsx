@@ -9,7 +9,6 @@ import { BrowserRouter } from 'react-router-dom';
 import CssBaseline from '@mui/material/CssBaseline';
 import { Route, Redirect } from  'react-router-dom';
 
-
 function App() {
   return (
     <BrowserRouter>
