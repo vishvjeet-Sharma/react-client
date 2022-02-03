@@ -18,8 +18,6 @@ function App() {
         <SnackbarProvider>
         <div className="App">
           <Switch>
-
-         
             <Route exact path='/'>
               <Redirect to='/login' />
             </Route>
