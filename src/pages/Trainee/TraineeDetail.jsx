@@ -4,8 +4,6 @@ import moment from 'moment';
 import trainees from './data/trainee';
 import { Link } from 'react-router-dom';
 import { Button, Typography, Box, Paper } from '@mui/material';
-import { MarginRounded } from '@mui/icons-material';
-import { color } from '@mui/system';
 
 const getData = (date) => moment(date).format('dddd,MMMM Do YYYY, h:mm:ss a');
 const TraineeDetail = (props) => {
